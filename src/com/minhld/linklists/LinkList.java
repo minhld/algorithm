@@ -7,6 +7,18 @@ public class LinkList {
 		this.first = null;
 	}
 	
+	public ListIterator getIterator() {
+		return new ListIterator(this);
+	}
+	
+	public Link getFirst() {
+		return this.first;
+	}
+	
+	public void setFirst(Link first) {
+		this.first = first;
+	}
+	
 	public void insertFirst(Object data) {
 		Link newLink = new Link(data);
 		newLink.next = first;

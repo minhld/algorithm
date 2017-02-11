@@ -6,6 +6,14 @@ public class testLink extends Thread {
 		testSortedList();
 	}
 	
+	public void testIterator() {
+		LinkList list = new LinkList();
+		ListIterator iter = list.getIterator();
+		Link aLink = iter.getCurrent();
+		Link nextLink = iter.getNext();
+		
+	}
+	
 	public void testSortedList() {
 		SortedList list = new SortedList();
 		list.insert(5);
