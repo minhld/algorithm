@@ -10,7 +10,7 @@ public class testLink extends Thread {
 		LinkList list = new LinkList();
 		ListIterator iter = list.getIterator();
 		Link aLink = iter.getCurrent();
-		Link nextLink = iter.getNext();
+		iter.nextLink();
 		
 	}
 	
