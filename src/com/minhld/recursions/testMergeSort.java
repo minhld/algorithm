@@ -4,7 +4,7 @@ public class testMergeSort extends Thread {
 	public void run() {
 		int maxLength = 100;
 		MergeSort merge = new MergeSort(maxLength);
-		for (int i = 0; i < maxLength / 2; i++) {
+		for (int i = 0; i < maxLength; i++) {
 			merge.insert((long) (Math.random() * 1000));
 		}
 		System.out.println("original array:");
