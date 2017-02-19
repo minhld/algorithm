@@ -46,8 +46,83 @@ public class Tree {
 		}
 	}
 
-	public void delete(int iKey) {
+	public boolean delete(int key) {
+		Node c = root, p = null;
+		boolean isLeftChild = true;
+		while (c != null && c.key != key) {
+			if (key < c.key) {
+				p = c;
+				c = c.lChild;
+				isLeftChild = true;
+			} else if (key > c.key) {
+				p = c;
+				c = c.rChild;
+				isLeftChild = false;
+			}
+		}
+		
+		if (c == null) {
+			return false;
+		}
+		
+		if (c.lChild == null && c.rChild == null) {
+			if (p == null) {
+				root = null;
+			} else if (isLeftChild) {
+				p.lChild = null;
+			} else {
+				p.rChild = null;
+			}
+		} else if (c.lChild != null && c.rChild == null) {
+			if (p == null) {
+				root.lChild = c.lChild;
+			} else if (isLeftChild) {
+				p.lChild = c.lChild;
+			} else {
+				p.rChild = c.lChild;
+			}
+		} else if (c.lChild == null && c.rChild != null) {
+			if (p == null) {
+				root.rChild = c.rChild;
+			} else if (isLeftChild) {
+				p.lChild = c.rChild;
+			} else {
+				p.rChild = c.rChild;
+			}
+		} else if (c.lChild != null && c.rChild != null) {
+			Node successor = getSuccessor(c);
+			if (p == null) {
+				root = successor;
+			} else if (isLeftChild) {
+				p.lChild = successor;
+			} else {
+				p.rChild = successor;
+			}
+		}
+		return true;
+		
+	}
 	
+	private Node getSuccessor(Node root) {
+		Node p = root;
+		Node c = root.rChild;
+		while (c != null && c.lChild != null) {
+			p = c;
+			c = c.lChild;
+		}
+		return c;
+	}
+	
+	public void displayInOrder() {
+		inOrder(root);
+	}
+	
+	private void inOrder(Node root) {
+		if (root != null) {
+			inOrder(root.lChild);
+			System.out.print(root.key + " ");
+			inOrder(root.rChild);
+		}
 	}
 	
 	public void display() {

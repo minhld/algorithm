@@ -10,6 +10,13 @@ public class testTree extends Thread {
 		t.insert(4);
 		t.insert(7);
 		t.insert(11);
+		t.insert(6);
+		t.display();
+		
+		System.out.println();
+		// t.displayInOrder();
+		
+		t.delete(7);
 		
 		t.display();
 	}
