@@ -19,7 +19,7 @@ public class testTree extends Thread {
 		System.out.println();
 		// t.displayInOrder();
 		
-		t.delete(8);
+		t.delete(5);
 		
 		t.display();
 	}
