@@ -5,18 +5,21 @@ public class testTree extends Thread {
 		Tree t = new Tree();
 		t.insert(5);
 		t.insert(3);
-		t.insert(8);
+		t.insert(12);
 		t.insert(2);
 		t.insert(4);
+		t.insert(8);
+		t.insert(15);
+		t.insert(6);
+		t.insert(10);
 		t.insert(7);
 		t.insert(11);
-		t.insert(6);
 		t.display();
 		
 		System.out.println();
 		// t.displayInOrder();
 		
-		t.delete(7);
+		t.delete(8);
 		
 		t.display();
 	}

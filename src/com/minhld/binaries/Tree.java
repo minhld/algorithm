@@ -98,17 +98,27 @@ public class Tree {
 			} else {
 				p.rChild = successor;
 			}
+			successor.lChild = c.lChild;
+			successor.rChild = c.rChild;			
 		}
 		return true;
 		
 	}
 	
-	private Node getSuccessor(Node root) {
-		Node p = root;
-		Node c = root.rChild;
+	private Node getSuccessor(Node delNode) {
+		Node p = delNode;
+		Node c = delNode.rChild;
+		boolean isLeftChild = false;
 		while (c != null && c.lChild != null) {
 			p = c;
 			c = c.lChild;
+			isLeftChild = true;
+		}
+		
+		if (isLeftChild) {
+			p.lChild = c.rChild;		
+		} else {
+			p.rChild = c.rChild;
 		}
 		return c;
 	}
