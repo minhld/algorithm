@@ -1,10 +1,10 @@
 package com.minhld.binaries;
 
 public class Node {
-	int key; 
-	double data; 
-	Node lChild; 
-	Node rChild;
+	public int key; 
+	public double data; 
+	public Node lChild; 
+	public Node rChild;
 	
 	public Node(int key, double data) {
 		this.key = key;
