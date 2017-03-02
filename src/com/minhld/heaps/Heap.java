@@ -43,16 +43,16 @@ public class Heap {
 	}
 	
 	private void trickleDown(int index) {
-		
+
 	}
 	
 	public void display() {
-		if (root == null) {
-			System.out.println("tree is empty");
-		}
+//		if (root == null) {
+//			System.out.println("tree is empty");
+//		}
 		
 		Queue q = new Queue(100);
-		q.insert(root);
+//		q.insert(root);
 		
 		Node c;
 		int qSize = q.size();
