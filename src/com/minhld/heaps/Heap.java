@@ -47,34 +47,14 @@ public class Heap {
 	}
 	
 	public void display() {
-		if (root == null) {
-			System.out.println("tree is empty");
-		}
-		
-		Queue q = new Queue(100);
-		q.insert(root);
-		
-		Node c;
-		int qSize = q.size();
-		int cnt = 0;
-		while (!q.isEmpty()) {
-			while (cnt < qSize) {
-				c = (Node) q.remove();
-				
-				System.out.print(c.key + " ");
-				
-				if (c.lChild != null) {
-					q.insert(c.lChild);
-				}
-				
-				if (c.rChild != null) {
-					q.insert(c.rChild);
-				}
-				cnt++;
+		int lineCount = 1;
+		for (int i = 0; i < N; i++) {
+			if (i < Math.pow(2, lineCount) - 1) {
+				System.out.print(heapArray[i].key + " ");
+			} else {
+				System.out.println();
+				lineCount++;
 			}
-			System.out.println();
-			cnt = 0;
-			qSize = q.size();
 		}
 	}
 }
