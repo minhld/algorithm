@@ -1,7 +1,6 @@
 package com.minhld.heaps;
 
 import com.minhld.binaries.Node;
-import com.minhld.stackqueue.Queue;
 
 public class Heap {
 	private Node heapArray[];
@@ -47,34 +46,15 @@ public class Heap {
 	}
 	
 	public void display() {
-//		if (root == null) {
-//			System.out.println("tree is empty");
-//		}
-		
-		Queue q = new Queue(100);
-//		q.insert(root);
-		
-		Node c;
-		int qSize = q.size();
-		int cnt = 0;
-		while (!q.isEmpty()) {
-			while (cnt < qSize) {
-				c = (Node) q.remove();
-				
-				System.out.print(c.key + " ");
-				
-				if (c.lChild != null) {
-					q.insert(c.lChild);
-				}
-				
-				if (c.rChild != null) {
-					q.insert(c.rChild);
-				}
-				cnt++;
+		int lineCnt = 1;
+		for (int i = 0; i < N; i++) {
+			System.out.print(this.heapArray[i].key + " ");
+			
+			if (i < (int)Math.pow(lineCnt, 2) - 1) {
+			} else {
+				System.out.println();
+				lineCnt++;
 			}
-			System.out.println();
-			cnt = 0;
-			qSize = q.size();
 		}
 	}
 }

@@ -8,6 +8,8 @@ public class testHeap extends Thread {
 			sKey = (int) (Math.random() * 1000);
 			heap.insert(sKey);
 		}
+		
+		heap.display();
 	}
 	
 	public static void main(String args[]) {
