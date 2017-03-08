@@ -1,7 +1,6 @@
 package com.minhld.heaps;
 
 import com.minhld.binaries.Node;
-import com.minhld.stackqueue.Queue;
 
 public class Heap {
 	private Node heapArray[];
@@ -43,17 +42,18 @@ public class Heap {
 	}
 	
 	private void trickleDown(int index) {
-		
+
 	}
 	
 	public void display() {
-		int lineCount = 1;
+		int lineCnt = 1;
 		for (int i = 0; i < N; i++) {
-			if (i < Math.pow(2, lineCount) - 1) {
-				System.out.print(heapArray[i].key + " ");
+			System.out.print(this.heapArray[i].key + " ");
+			
+			if (i < (int)Math.pow(lineCnt, 2) - 1) {
 			} else {
 				System.out.println();
-				lineCount++;
+				lineCnt++;
 			}
 		}
 	}
