@@ -5,7 +5,7 @@ public class testHeap extends Thread {
 		Heap heap = new Heap(100);
 		int sKey = 0;
 		for (int i = 0; i < 20; i++) {
-			sKey = (int) (Math.random() * 1000);
+			sKey = (int) (Math.random() * 100);
 			heap.insert(sKey);
 		}
 		

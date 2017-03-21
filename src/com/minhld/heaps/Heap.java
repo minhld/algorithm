@@ -27,14 +27,15 @@ public class Heap {
 	private void trickleUp(int index) {
 		int cPos = index;
 		int pPos = (cPos - 1) / 2; 
-		int pKey = 0;
-		while (pPos >= 0 && this.heapArray[pPos].key < this.heapArray[cPos].key) {
-			pKey = this.heapArray[pPos].key;
-			this.heapArray[pPos].key = this.heapArray[cPos].key;
+		int bottomKey = this.heapArray[index].key;
+		
+		while (cPos > 0 && this.heapArray[pPos].key < bottomKey) {
+			this.heapArray[cPos].key = this.heapArray[pPos].key;
 			cPos = pPos;
-			pPos = (cPos - 1) / 2;
+			pPos = (pPos - 1) / 2;
 		}
-		this.heapArray[index].key = pKey;
+		
+		this.heapArray[cPos].key = bottomKey;
 	}
 	
 	public Node remove(int key) {
@@ -50,11 +51,11 @@ public class Heap {
 		for (int i = 0; i < N; i++) {
 			System.out.print(this.heapArray[i].key + " ");
 			
-			if (i < (int)Math.pow(lineCnt, 2) - 1) {
-			} else {
-				System.out.println();
-				lineCnt++;
-			}
+//			if (i < (int)Math.pow(lineCnt, 2) - 1) {
+//			} else {
+//				System.out.println();
+//				lineCnt++;
+//			}
 		}
 	}
 }
