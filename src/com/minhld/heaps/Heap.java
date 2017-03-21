@@ -47,15 +47,13 @@ public class Heap {
 	}
 	
 	public void display() {
-		int lineCnt = 1;
+		int lineCnt = 1, itemCnt = 0;
 		for (int i = 0; i < N; i++) {
 			System.out.print(this.heapArray[i].key + " ");
-			
-//			if (i < (int)Math.pow(lineCnt, 2) - 1) {
-//			} else {
-//				System.out.println();
-//				lineCnt++;
-//			}
+			if (++itemCnt == (int)Math.pow(2, lineCnt) - 1) {
+				System.out.println();
+				lineCnt++;
+			}
 		}
 	}
 }
