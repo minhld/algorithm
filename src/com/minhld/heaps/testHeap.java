@@ -1,5 +1,7 @@
 package com.minhld.heaps;
 
+import com.minhld.binaries.Node;
+
 public class testHeap extends Thread {
 	public void run() {
 		Heap heap = new Heap(100);
@@ -10,6 +12,13 @@ public class testHeap extends Thread {
 		}
 		
 		heap.display();
+		
+		Node root = heap.remove();
+		System.out.println("deleted: " + root.key);
+		
+		heap.display();
+
+		
 	}
 	
 	public static void main(String args[]) {

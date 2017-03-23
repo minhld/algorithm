@@ -38,12 +38,33 @@ public class Heap {
 		this.heapArray[cPos].key = bottomKey;
 	}
 	
-	public Node remove(int key) {
-		return null;
+	public Node remove() {
+		if (N == 0) return null;
+		
+		Node root = heapArray[0];
+		heapArray[0] = heapArray[--N];
+		
+		trickleDown(0, heapArray[0].key);
+		
+		return root;
 	}
 	
-	private void trickleDown(int index) {
-
+	private void trickleDown(int index, int rootValue) {
+		int lChild = 2 * index + 1;
+		int rChild = lChild + 1;
+		
+		if (rChild < N && heapArray[lChild].key < heapArray[rChild].key) {
+			heapArray[index].key = heapArray[rChild].key;
+			trickleDown(rChild, rootValue);
+		} else if (rChild < N && heapArray[lChild].key > heapArray[rChild].key) {
+			heapArray[index].key = heapArray[lChild].key;
+			trickleDown(lChild, rootValue);
+		} else if (lChild < N && rootValue < heapArray[lChild].key) {
+			heapArray[index].key = heapArray[lChild].key;
+			trickleDown(lChild, rootValue);
+		} else {
+			heapArray[index].key = rootValue;
+		}		
 	}
 	
 	public void display() {
@@ -55,5 +76,6 @@ public class Heap {
 				lineCnt++;
 			}
 		}
+		System.out.println();
 	}
 }
