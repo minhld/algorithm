@@ -10,7 +10,6 @@ public class testHeap extends Thread {
 			sKey = (int) (Math.random() * 100);
 			heap.insert(sKey);
 		}
-		
 		heap.display();
 		
 		Node root = heap.remove();
